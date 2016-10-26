@@ -1,0 +1,9 @@
+<div class = "container">
+
+  <h1>My To-Do Lists</h1>
+
+  <% @lists.each do |list| %>
+    <p><%= link_to list.title, list %>
+  <% end %>
+
+</div>

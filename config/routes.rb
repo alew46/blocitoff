@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  devise_for :users
+  get 'todos/show'
 
-  get 'welcome/about'
+  get 'todos/new'
+
+  get 'todos/create'
+
+  get 'todos/edit'
+
+  get 'todos/destroy'
+
+  resources :lists do
+    resources :todos, except: [:index]
+  end
+
+
+  get 'about' => 'welcome#about'
 
   root 'welcome#index'
 

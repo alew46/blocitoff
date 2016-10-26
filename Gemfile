@@ -41,3 +41,5 @@ gem 'turbolinks'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
+
+gem 'devise'

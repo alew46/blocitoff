@@ -1,0 +1,11 @@
+<div style="margin_left: 10%;">
+  <div class="container" style="text-align: center">
+    <h1>Create a New To-Do List</h1>
+    <p>Give your list a name that describes the things you'll put in it:<p>
+      <%= form_for @list do |f| %>
+        <%= f.text_field :title, :placeholder => "School, Work, etc." %>
+
+        <%= f.submit "Save List" %>
+      <% end %>
+  </div>
+</div>
