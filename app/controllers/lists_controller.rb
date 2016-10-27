@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show
@@ -12,8 +14,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create
-    @list.title = params[:list][:title]
+    @list = current_user.lists.new(list_params)
 
     if @list.save
       flash[:notice] = "Your list has been created! Now add some to-do's."
@@ -51,5 +52,11 @@ class ListsController < ApplicationController
        flash.now[:alert] = "There was an error deleting the list. Please try again or contact support."
        render :show
      end
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:title)
   end
 end

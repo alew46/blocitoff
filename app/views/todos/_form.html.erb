@@ -1,0 +1,8 @@
+<h3>Add a new To-Do for this list:</h3>
+
+ <%= form_for [list, todo] do |f| %>
+   <div class="form-group">
+     <%= f.text_field :title, class: 'form-control', placeholder: "Enter a new to-do" %>
+   </div>
+   <%= f.submit "Enter", class: 'btn btn-default pull-right' %>
+ <% end %>

@@ -6,7 +6,6 @@ class TodosController < ApplicationController
   def create
     @list = List.find(params[:list_id])
     @todo = @list.todos.new(todo_params)
-    @todo.list = @list
 
     if @todo.save
        flash[:notice] = "To-do was added successfully."
@@ -37,7 +36,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:list])
+    @list = current_user.lists.find(params[:list_id])
     @todo = @list.todos.find(params[:id])
 
     if @todo.destroy

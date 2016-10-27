@@ -1,8 +1,17 @@
 require 'random_data'
 
  3.times do
+   User.create!(
+   email: RandomData.random_email,
+   password: RandomData.random_sentence
+   )
+ end
+
+ users= User.all
+
+ 3.times do
    List.create!(
- # #2
+     user: users.sample,
      title:  RandomData.random_sentence,
    )
  end
@@ -11,10 +20,13 @@ require 'random_data'
 
  15.times do
    Todo.create!(
+     user: users.sample,
      list: lists.sample,
      title: RandomData.random_sentence
    )
  end
+
+ todos = Todo.all
 
  testuser = User.create!(
     email: "testuser@example.com",
@@ -23,5 +35,6 @@ require 'random_data'
  )
 
  puts "Seed finished"
+ puts "#{User.count} users created"
  puts "#{List.count} lists created"
- puts "#{Todo.count} todo's created"
+ puts "#{Todo.count} todos created"
