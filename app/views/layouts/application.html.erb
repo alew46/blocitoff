@@ -12,7 +12,9 @@
   <div class = "container">
       <ul class = "nav nav-tabs">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "My To-Do Lists", user_path(current_user), :class => 'btn' %></li>
+        <% end %>
 
         <div class = "pull-right" style="margin-top: 10px">
           <% if user_signed_in? %>

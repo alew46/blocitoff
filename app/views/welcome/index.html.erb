@@ -1,6 +1,22 @@
 <div style="position: relative; padding: 10%;">
-  <div id="home-block">
-    <h1>Blocitoff:</h1>
-    <p>A self-destructing to-do list to keep you focused on the things that really matter.</p>
+  <div class="row">
+    <div class="col-md-4", id="title-block">
+      <h1 id="main-title">Blocitoff</h1>
+      <p class="basic-text">A self-destructing to-do list to keep you focused on the things that really matter.</p>
+        <div style="float: left; margin: 8px">
+          <%= link_to "Create Account", new_user_registration_path, class: "btn btn-primary" %>
+        </div>
+        <div style="float: right; margin: 8px">
+          <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <div class="col-md-8" stle="text-align: center">
+      <h2>With Blocitoff you can:<h2>
+        <ul id="front-page-list">
+          <li class="glyphicon glyphicon-list-alt" style="blue">  Create simple to-do lists.</li>
+          <li class="glyphicon glyphicon-ok">  Automatically delete old to-do items.</li>
+          <li class="glyphicon glyphicon-thumbs-up">  Decrease clutter.</li>
+        </ul>
+    </div>
   </div>
 </div>

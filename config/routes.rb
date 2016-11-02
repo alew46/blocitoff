@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users
 
   resources :lists do
     resources :todos, except: [:index]
   end
+
+  resources :users, only: [:show]
 
 
   get 'about' => 'welcome#about'

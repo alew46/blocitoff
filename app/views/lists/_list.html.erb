@@ -1,0 +1,9 @@
+<h1>My To-Do Lists</h1>
+<% @lists.each do |list| %>
+  <h2><%= list.title %></h2>
+  <tr>
+    <% list.todos.each do |todo| %>
+      <td><%= todo.title%></td>
+    <% end %>
+  </tr>
+<% end %>
